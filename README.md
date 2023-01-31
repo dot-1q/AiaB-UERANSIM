@@ -74,6 +74,11 @@ omec-sub-provision:
                 - "208930000000005"
 # ...
 ```
+
+After provisioning the subscribers, or using the ones already provisioned, we can deploy the Aether ROC GUI and SD-Core with:
+```
+ENABLE_GNBSIM=false DATA_IFACE=ens4 CHARTS=latest make roc-5g-models 5g-core
+```
 ---
 
 ## Adding the new UPF's and Slices
@@ -86,11 +91,7 @@ omec-sub-provision:
 | 3   | 192.168.252.5/24 | 192.168.250.5/24 | 172.253.0.0/16 |
 
 ---
-After provisioning the subscribers, or using the ones already provisioned, we can deploy the Aether ROC GUI and SD-Core with:
-```
-ENABLE_GNBSIM=false DATA_IFACE=ens4 CHARTS=latest make roc-5g-models 5g-core
-```
-This deployment will only use one UPF. To add more UPF's we have to:
+
 1. Create a new namespace for the new UPF (upf2 in this example)
 
 ```
