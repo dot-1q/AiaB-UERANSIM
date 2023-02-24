@@ -65,7 +65,7 @@ Verify the pods are running with: _kubectl get pods -n upf2_.
     1. Add a new IP pool for the UPF subscribers (Configuration -> IP Domain).
     2. Create the new sim cards and devices if you've provisioned new imsi's. Here are the [instructions](https://docs.aetherproject.org/master/operations/subscriber.html).
     3. Create a new device group for the devices that belong together for each UPF/Slice.
-    4. Create the new UPF. Keep in mind that the Config Endpoint should be **http://upf-http.\<namespace\>.svc:8080**. and Address should be **upf.\<namespace\>**. Insert the namespace of your new UPF (upf2).
+    4. Create the new UPF. Keep in mind that the Config Endpoint should be **http://upf-http.<namespace\>.svc:8080**. and Address should be **upf.\<namespace\>**. Insert the namespace of your new UPF (upf2).
     5. Create a new slice and associate the newly created UPF to it.
 
 5. Now we have to establish two static routes. One in the AiaB VM and other in the UERANSIM VM
