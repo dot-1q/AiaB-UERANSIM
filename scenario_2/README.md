@@ -133,7 +133,7 @@ kubectl apply -f router.yaml
 
 6. Deploy the UPF. After the first time, use upgrade instead of install.
 ```
-helm install/upgrade -f upf2.yaml upf2 aether/bess-upf
+helm install/upgrade -f upf3.yaml upf3 aether/bess-upf
 ```
 
 7. Configure the new UPF via Aether ROC GUI. Images with the correct configuration are provided [here](/scenario_2/images/).
