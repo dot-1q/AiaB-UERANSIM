@@ -120,7 +120,7 @@ service:
 sudo ip link add access link ens4 type macvlan mode bridge
 sudo ip link add core link ens4 type macvlan mode bridge
 sudo ip link add gnb link ens4 type macvlan mode bridge
-sudo ip addr add 192.168.100.10/24 dev gnb
+sudo ip addr add 192.168.110.10/24 dev gnb
 sudo ip link set access up
 sudo ip link set core up
 sudo ip link set gnb up
