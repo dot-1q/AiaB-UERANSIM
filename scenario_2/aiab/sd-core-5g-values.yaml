@@ -119,24 +119,9 @@ omec-sub-provision:
               op: ""
               key: "5122250214c33e723a5dd523fc145fc0"
               sequenceNumber: "16f3b3f70fc2"
-            - ueId-start: "208930100007487"
-              ueId-end: "208930100007500"
-              plmnId: "20893"
-              opc: "981d464c7c52eb6e5036234984ad0bcf"
-              op: ""
-              key: "5122250214c33e723a5dd523fc145fc0"
-              sequenceNumber: "16f3b3f70fc2"
-            - ueId-start: "208930100007501"
-              ueId-end: "208930100007599"
-              plmnId: "20893"
-              opc: "981d464c7c52eb6e5036234984ad0bcf"
-              op: ""
-              key: "5122250214c33e723a5dd523fc145fc0"
-              sequenceNumber: "16f3b3f70fc2"
-
             # Configure More than one device Group as per your need
             device-groups:
-            - name:  "siteusers"
+            - name:  "ua_campus_users"
               imsis:
                 - "208930000000000"
                 - "208930000000001"
@@ -146,19 +131,15 @@ omec-sub-provision:
                 - "208930000000005"
                 - "208930000000006"
                 - "208930000000007"
-                - "208930000000005"
-                - "208930000000006"
-                - "208930000000007"
-                - "208930000000008"
               ip-domain-name: "pool1"
               ip-domain-expanded:
                 dnn: internet
-                dns-primary: "8.8.8.8" # Change this as per your need. This value is sent to UE
-                mtu: 1460 # This value is sent to UE/Mobile/Subscriber during Subscriber PDU Session Est
-                ue-ip-pool: "172.250.1.0/16" # IP address pool for subscribers
+                dns-primary: "1.1.1.1" # Change this as per your need. This value is sent to UE
+                mtu: 1400 # This value is sent to UE/Mobile/Subscriber during Subscriber PDU Session Est
+                ue-ip-pool: "172.1.0.0/16" # IP address pool for subscribers
                 ue-dnn-qos:
-                  dnn-mbr-downlink: 200000000 #ue level downlink qos
-                  dnn-mbr-uplink:    20000000 #ue level uplink qos
+                  dnn-mbr-downlink: 100000000 #ue level downlink qos
+                  dnn-mbr-uplink:   100000000  #ue level uplink qos
                   bitrate-unit: bps #unit for qos rates mentioned above
                   traffic-class:  #default bearer QCI/ARP. These values are not used in 5G as such
                     name: "platinum"
@@ -167,106 +148,12 @@ omec-sub-provision:
                     pdb: 300
                     pelr: 6
               site-info: "aiab"
-            - name:  "5g-gnbsim-user-group1"
-              imsis:
-                - "208930100007487"
-                - "208930100007488"
-                - "208930100007489"
-                - "208930100007490"
-                - "208930100007491"
-                - "208930100007492"
-                - "208930100007493"
-                - "208930100007494"
-                - "208930100007495"
-                - "208930100007496"
-                - "208930100007497"
-                - "208930100007498"
-                - "208930100007499"
-                - "208930100007500"
-              ip-domain-name: "pool1"
-              ip-domain-expanded:
-                dnn: internet
-                dns-primary: "8.8.8.8" # Change this as per your need. This value is sent to UE
-                mtu: 1460 # This value is sent to UE/Mobile/Subscriber during Subscriber PDU Session Est
-                ue-ip-pool: "172.250.1.0/16" # IP address pool for subscribers
-                ue-dnn-qos:
-                  dnn-mbr-downlink: 200000000 #ue level downlink qos
-                  dnn-mbr-uplink:    20000000 #ue level uplink qos
-                  bitrate-unit: bps #unit for qos rates mentioned above
-                  traffic-class:  #default bearer QCI/ARP. These values are not used in 5G as such
-                    name: "platinum"
-                    qci: 9
-                    arp: 6
-                    pdb: 300
-                    pelr: 6
-              site-info: "aiab"
-            #configure only 1 device group if you want UPF to allocate UE address.
-            #if smf is allocating IP address then having 2 separate pools is not a problem.
-            - name:  "5g-gnbsim-user-group2" # second device Group
-              imsis:
-                - "208930100007501"
-                - "208930100007502"
-                - "208930100007503"
-                - "208930100007504"
-                - "208930100007505"
-                - "208930100007506"
-                - "208930100007507"
-                - "208930100007508"
-                - "208930100007509"
-                - "208930100007510"
-              ip-domain-name: "pool2"
-              ip-domain-expanded:
-                dnn: internet
-                dns-primary: "8.8.8.8" # Change this as per your need. This value is sent to UE
-                mtu: 1460 # This value is sent to UE/Mobile/Subscriber during Subscriber PDU Session Est
-                ue-ip-pool: "172.250.1.0/16" # IP address pool for subscribers
-                ue-dnn-qos:
-                  dnn-mbr-downlink: 400000000
-                  dnn-mbr-uplink:    10000000
-                  bitrate-unit: bps # this value can be in gbps, mbps, kbps
-                  traffic-class:  #default bearer QCI/ARP
-                    name: "platinum"
-                    qci: 8
-                    arp: 6
-                    pdb: 300
-                    pelr: 6
-              site-info: "aiab2"
-            network-slices:
-            - name: "default" #provide any unique slice name
-              slice-id: #make sure this slice matches with slice configured in gNB, UE
-                sd: "010203"
-                sst: 1
-              site-device-group:
-              - "5g-gnbsim-user-group1"  #all UEs mentioned in this device group are assigned to this slice
-              - "5g-gnbsim-user-group2"
-              # below list of applicaiton filter controls what user can access.
-              # by default user can access all networks.
-              application-filtering-rules:
-              #all application information. Default, allow all applications
-              - rule-name: "ALLOW-ALL"
-                priority: 250
-                action: "permit"
-                endpoint: "0.0.0.0/0"
-              site-info:
-                # Provide gNBs and UPF details and also PLMN for the site
-                gNodeBs:
-                - name: "aiab-gnb1"
-                  tac: 1
-                - name: "aiab-gnb2"
-                  tac: 2
-                plmn:
-                  mcc: "208"
-                  mnc: "93"
-                site-name: "aiab"
-                upf:
-                  upf-name: "upf"  # associated UPF for this slice. One UPF per Slice. Provide fully qualified name
-                  upf-port: 8805
 
 # Override values for omec-user-plane helm chart
 # omec-user-plane Helm Charts values - https://gerrit.opencord.org/sdfabric-helm-charts/bess-upf/values.yaml
 
 omec-user-plane:
-  enable: true
+  enable: false
   resources:
     enabled: false
   images:
@@ -292,8 +179,10 @@ omec-user-plane:
         subnet: ${RAN_SUBNET} #this is your gNB network
       access:
         iface: ${DATA_IFACE}
+        # ip: 192.168.252.3/24   # this is the default in the Helm chart
       core:
         iface: ${DATA_IFACE}
+        # ip: 192.168.250.3/24   # this is the default in the Helm chart
       cfgFiles:
         upf.json:
           mode: af_packet  #this mode means no dpdk
@@ -320,11 +209,14 @@ omec-user-plane:
     #  gnbsim: 5gc-gnbsim:0.0.1-dev-local5
   config:
     gnbsim:
+      networkTopo:
+        - upfAddr: "192.168.252.0/24"
+          upfGw: "192.168.251.1"
       singleInterface: false #default multiInterface. Works well for AIAB
       execInParallel: false #run all profiles in parallel
       goProfile:
         enable: false #enable/disable golang profile in gnbsim
-      #   port: 5000
+        port: 5000
       httpServer:
         enable: false #enable httpServer in gnbsim
         port: 6000
