@@ -20,4 +20,8 @@ These UPF's are running in the same VM and cluster as all of the other AiaB reso
 ## Scenario 2
 In this scenario, the UPF's are deployed in the UERANSIM VM's thus creating a very simple ACE, with local internet access, meaning the UE's traffic towards the Internet don't ever leave this VM, nor will the traffic towards the edge service.
 A very simple edge service is runnning on each cluster, that simply recieves and sends a message using UDP from and to the UE.
+
+[Link](https://hub.docker.com/r/802dot1q/edgeservice) to the edge service
+
+The deployments that make up this second scenario are all available [here](https://github.com/dot-1q/5g_connected_edge)
 ![alt text](network_scn_2.png "scenario")
