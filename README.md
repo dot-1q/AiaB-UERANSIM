@@ -1,3 +1,4 @@
+# [OUTDATED, WILL BE UPDATED SOON!]
 # Setting up Aether-in-a-Box with UERANSIM.
 This guide is an expansion on the one provided in the [ONF's SD-Core UERANSIM documentation](https://docs.sd-core.opennetworking.org/master/deployment/deploymentueransim.html), therefore it will assume that both VM's are setup and the base case scenario documented (uesimtun0 ping test) is working.
 The config files for all the UERANSIM gNb's and UE's are also provided in this repository as well as a simple speedtest python script.
