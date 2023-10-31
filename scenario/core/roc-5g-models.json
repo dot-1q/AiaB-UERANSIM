@@ -1,0 +1,351 @@
+{
+    "default-target": "ua",
+    "Updates": {
+        "site-2.1.0": [
+            {
+                "description": "Site 1 of University of Aveiro Campus",
+                "display-name": "Site 1",
+                "site-id": "site1",
+                "imsi-definition": {
+                    "mcc": "208",
+                    "mnc": "99",
+                    "enterprise": 0,
+                    "format": "CCCNNEESSSSSSSS"
+                },
+                "connectivity-service": {
+                    "core-5g": {
+                        "endpoint": "http://webui.omec.svc:5000/config"
+                    }
+                },
+                "device": [
+                    {
+                        "device-id": "ua-ue-0",
+                        "display-name": "UE 0",
+                        "sim-card": "ua-sim-0"
+                    },
+                    {
+                        "device-id": "ua-ue-1",
+                        "display-name": "UE 1",
+                        "sim-card": "ua-sim-1"
+                    },
+                    {
+                        "device-id": "ua-ue-2",
+                        "display-name": "UE 2",
+                        "sim-card": "ua-sim-2"
+                    },
+                    {
+                        "device-id": "ua-ue-3",
+                        "display-name": "UE 3",
+                        "sim-card": "ua-sim-3"
+                    }
+                ],
+                "sim-card": [
+                    {
+                        "sim-id": "ua-sim-0",
+                        "display-name": "UE 0 Sim",
+                        "imsi": "208990000000000"
+                    },
+                    {
+                        "sim-id": "ua-sim-1",
+                        "display-name": "UE 1 Sim",
+                        "imsi": "208990000000001"
+                    },
+                    {
+                        "sim-id": "ua-sim-2",
+                        "display-name": "UE 2 Sim",
+                        "imsi": "208990000000002"
+                    },
+                    {
+                        "sim-id": "ua-sim-3",
+                        "display-name": "UE 3 Sim",
+                        "imsi": "208990000000003"
+                    }
+                ],
+                "device-group": [
+                    {
+                        "display-name": "UA Users Group 1",
+                        "device-group-id": "device-group-1",
+                        "device": [
+                            {
+                                "device-id": "ua-ue-0",
+                                "enable": true
+                            },
+                            {
+                                "device-id": "ua-ue-1",
+                                "enable": true
+                            }
+                        ],
+                        "ip-domain": "ua-pool1",
+                        "mbr": {
+                            "uplink": 200000000,
+                            "downlink": 200000000
+                        },
+                        "traffic-class": "class-1"
+                    },
+                    {
+                        "display-name": "device group 2",
+                        "device-group-id": "device-group-2",
+                        "device": [
+                            {
+                                "device-id": "ua-ue-2",
+                                "enable": true
+                            },
+                            {
+                                "device-id": "ua-ue-3",
+                                "enable": true
+                            }
+                        ],
+                        "ip-domain": "ua-pool2",
+                        "mbr": {
+                            "uplink": 200000000,
+                            "downlink": 200000000
+                        },
+                        "traffic-class": "class-1"
+                    }
+                ],
+                "ip-domain": [
+                    {
+                        "admin-status": "ENABLE",
+                        "display-name": "IP pool 1",
+                        "dnn": "internet",
+                        "dns-primary": "193.136.92.73",
+                        "dns-secondary": "193.136.92.74",
+                        "ip-domain-id": "ua-pool1",
+                        "mtu": 1450,
+                        "subnet": "172.1.0.0/16"
+                    },
+                    {
+                        "admin-status": "ENABLE",
+                        "display-name": "IP pool 2",
+                        "dnn": "internet",
+                        "dns-primary": "193.136.92.73",
+                        "dns-secondary": "193.136.92.74",
+                        "ip-domain-id": "ua-pool2",
+                        "mtu": 1450,
+                        "subnet": "172.2.0.0/16"
+                    }
+                ],
+                "small-cell": [
+                    {
+                        "small-cell-id": "gnb1",
+                        "display-name": "gNodeB 1",
+                        "address": "ua-gnb1",
+                        "enable": true,
+                        "tac": "0001"
+                    }
+                ],
+                "upf": [
+                    {
+                        "address": "upf1",
+                        "display-name": "UPF 1",
+                        "upf-id": "upf1",
+                        "port": 8805,
+                        "config-endpoint": "http://upf1-http:8080"
+                    }
+                ],
+                "slice": [
+                    {
+                        "default-behavior": "ALLOW-ALL",
+                        "display-name": "Slice 1",
+                        "device-group": [
+                            {
+                                "device-group": "device-group-1",
+                                "enable": true
+                            }
+                        ],
+                        "filter": [],
+                        "slice-id": "slice1",
+                        "connectivity-service": "5g",
+                        "sd": "010101",
+                        "sst": "1",
+                        "upf": "upf1",
+                        "mbr": {
+                            "uplink": 200000000,
+                            "downlink": 200000000
+                        },
+                        "priority-traffic-rule": []
+                    }
+                ]
+            },
+            {
+                "description": "Site 2 of University of Aveiro Campus",
+                "display-name": "Site 2",
+                "site-id": "site2",
+                "imsi-definition": {
+                    "mcc": "208",
+                    "mnc": "99",
+                    "enterprise": 0,
+                    "format": "CCCNNEESSSSSSSS"
+                },
+                "connectivity-service": {
+                    "core-5g": {
+                        "endpoint": "http://webui.omec.svc:5000/config"
+                    }
+                },
+                "device": [
+                    {
+                        "device-id": "ua-ue-4",
+                        "display-name": "UE 4",
+                        "sim-card": "ua-sim-4"
+                    },
+                    {
+                        "device-id": "ua-ue-5",
+                        "display-name": "UE 5",
+                        "sim-card": "ua-sim-5"
+                    }
+                ],
+                "sim-card": [
+                    {
+                        "sim-id": "ua-sim-4",
+                        "display-name": "UE 4 Sim",
+                        "imsi": "208990000000004"
+                    },
+                    {
+                        "sim-id": "ua-sim-5",
+                        "display-name": "UE 5 Sim",
+                        "imsi": "208990000000005"
+                    }
+                ],
+                "device-group": [
+                    {
+                        "display-name": "device group 3",
+                        "device-group-id": "device-group-3",
+                        "device": [
+                            {
+                                "device-id": "ua-ue-4",
+                                "enable": true
+                            },
+                            {
+                                "device-id": "ua-ue-5",
+                                "enable": true
+                            }
+                        ],
+                        "ip-domain": "ua-pool3",
+                        "mbr": {
+                            "uplink": 200000000,
+                            "downlink": 200000000
+                        },
+                        "traffic-class": "class-1"
+                    }
+                ],
+                "ip-domain": [
+                    {
+                        "admin-status": "ENABLE",
+                        "display-name": "IP pool 3",
+                        "dnn": "internet",
+                        "dns-primary": "8.8.8.8",
+                        "ip-domain-id": "ua-pool3",
+                        "mtu": 1450,
+                        "subnet": "172.3.0.0/16"
+                    }
+                ],
+                "small-cell": [
+                    {
+                        "small-cell-id": "gnb2",
+                        "display-name": "gNodeB 2",
+                        "address": "ua-gnb2",
+                        "enable": true,
+                        "tac": "0001"
+                    }
+                ]
+            },
+            {
+                "description": "Site 3 of University of Aveiro Campus",
+                "display-name": "Site 3",
+                "site-id": "site3",
+                "imsi-definition": {
+                    "mcc": "208",
+                    "mnc": "99",
+                    "enterprise": 0,
+                    "format": "CCCNNEESSSSSSSS"
+                },
+                "connectivity-service": {
+                    "core-5g": {
+                        "endpoint": "http://webui.omec.svc:5000/config"
+                    }
+                },
+                "device": [
+                    {
+                        "device-id": "ua-ue-6",
+                        "display-name": "UE 6",
+                        "sim-card": "ua-sim-6"
+                    },
+                    {
+                        "device-id": "ua-ue-7",
+                        "display-name": "UE 7",
+                        "sim-card": "ua-sim-7"
+                    }
+                ],
+                "sim-card": [
+                    {
+                        "sim-id": "ua-sim-6",
+                        "display-name": "UE 6 Sim",
+                        "imsi": "208990000000006"
+                    },
+                    {
+                        "sim-id": "ua-sim-7",
+                        "display-name": "UE 7 Sim",
+                        "imsi": "208990000000007"
+                    }
+                ],
+                "device-group": [
+                    {
+                        "display-name": "device group 4",
+                        "device-group-id": "device-group-4",
+                        "device": [
+                            {
+                                "device-id": "ua-ue-6",
+                                "enable": true
+                            },
+                            {
+                                "device-id": "ua-ue-7",
+                                "enable": true
+                            }
+                        ],
+                        "ip-domain": "ua-pool4",
+                        "mbr": {
+                            "uplink": 200000000,
+                            "downlink": 200000000
+                        },
+                        "traffic-class": "class-1"
+                    }
+                ],
+                "ip-domain": [
+                    {
+                        "admin-status": "ENABLE",
+                        "display-name": "IP pool 4",
+                        "dnn": "internet",
+                        "dns-primary": "8.8.8.8",
+                        "ip-domain-id": "ua-pool4",
+                        "mtu": 1450,
+                        "subnet": "172.4.0.0/16"
+                    }
+                ],
+                "small-cell": [
+                    {
+                        "small-cell-id": "gnb3",
+                        "display-name": "gNodeB 3",
+                        "address": "ua-gnb3",
+                        "enable": true,
+                        "tac": "0001"
+                    }
+                ]
+            }
+        ],
+        "traffic-class-2.1.0": [
+            {
+                "description": "High Priority TC",
+                "display-name": "Class 1",
+                "traffic-class-id": "class-1",
+                "pdb": 100,
+                "arp": 1,
+                "pelr": 3,
+                "qci": 1
+            }
+        ]
+    },
+    "Deletes": {},
+    "Extensions": {
+        "transaction-strategy-111": 1
+    }
+}
