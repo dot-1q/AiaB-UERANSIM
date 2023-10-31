@@ -1,4 +1,4 @@
-# Scaling Aether User Plane for multiple Edge sites.
+# Aether + UERANSIM | Scaling Aether User Plane for multiple Edge sites.
 This guide is an expansion on the one provided in the [ONF's SD-Core UERANSIM documentation](https://docs.sd-core.opennetworking.org/master/deployment/deploymentueransim.html), therefore it will assume that both VM's are setup and the base case scenario documented (uesimtun0 ping test) is working.
 The config files for all the UERANSIM gNb's and UE's are also provided in this repository.
 
